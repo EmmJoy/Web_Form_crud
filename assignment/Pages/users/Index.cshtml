@@ -1,0 +1,64 @@
+﻿@page
+@model assignment.Pages.users.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.user[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user[0].Name)
+            </th>
+            <th></th>
+        </tr>
+        <link rel="stylesheet" href="/css/site.css">
+    </thead>
+    <tbody>
+@foreach (var item in Model.user) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+
+
+</table>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Example</title>
+    <style>
+        body {
+            background-color: #6bfbef; /* Set your desired background color */
+            margin: 0; /* Remove default body margin */
+            padding: 0; /* Remove default body padding */
+        }
+    </style>
+</head>
+<body>
+    <!-- This body contains only the background color -->
+</body>
+</html>
